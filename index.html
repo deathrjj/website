@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, height=device-height initial-scale=1">
+    <style>
+    body{
+      background:black
+    }
+    .img{
+      background-image:"1.gif"
+      width:auto;
+      height:95vh;
+    }
+    img { transition: filter 1s linear; }
+      .blur { filter: blur(30px); }
+
+    .container {
+      position: relative;
+      text-align: center;
+    }
+
+    h1{
+      display:none;
+      color:red;
+      position: absolute;
+      top: 50vh;
+      left: 85vh;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    </style>
+
+
+
+    <script>
+    window.onload=function(){
+      const img = document.querySelector('img');
+      img.addEventListener('click', toggleBlur);
+    }
+      function toggleBlur() {
+        var x = document.getElementById("text1");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          }else {
+            x.style.display = "block";
+          }
+        this.classList.toggle('blur');
+      }
+    </script>
+
+
+
+
+  </head>
+  <body>
+    <div class="container">
+      <img class="img"src="1.gif">
+      <h1 id="text1">&#10084;&#65039;I love you&#10084;&#65039;</h1>
+    </div>
+  </body>
+</html>
