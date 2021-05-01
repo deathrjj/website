@@ -23,9 +23,21 @@
       display:none;
       color:red;
       position: absolute;
-      top: 50vh;
-      left: 85vh;
+      top:50vh;
+      left: 5vw;
+      right:5vw;
       font-family: Arial, Helvetica, sans-serif;
+      font-size:10vw;
+    }
+    h2{
+      display:none;
+      color:red;
+      position: absolute;
+      top:10vh;
+      left: 5vw;
+      right:5vw;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:5vw;
     }
 
     </style>
@@ -34,6 +46,9 @@
 
     <script>
     window.onload=function(){
+      dt1 = new Date(2020,7,25);
+      dt2 = new Date();
+      diff_dates(dt2,dt1);
       const img = document.querySelector('img');
       img.addEventListener('click', toggleBlur);
     }
@@ -44,8 +59,49 @@
           }else {
             x.style.display = "block";
           }
+          var x = document.getElementById("text2");
+            if (x.style.display === "block") {
+              x.style.display = "none";
+            }else {
+              x.style.display = "block";
+            }
         this.classList.toggle('blur');
       }
+
+      function diff_dates(dt2, dt1)
+        {
+          var strOutput = "Happy: "
+          if(dt2.getFullYear()-dt1.getFullYear()!=0){
+            if(dt2.getMonth()>dt1.getMonth()){
+              var years = dt2.getFullYear()-dt1.getFullYear()
+              }
+            else{
+              var years = dt2.getFullYear()-dt1.getFullYear()-1
+            }
+            if(years!=0){
+            var strOutput = strOutput + years + " years, "
+          }
+            }
+
+          if(dt2.getMonth()-dt1.getMonth()<0){
+            var months = 12 + (dt2.getMonth()-dt1.getMonth());
+          }
+          else{var months = dt2.getMonth()-dt1.getMonth()}
+          var strOutput = strOutput + months + " months, and "
+
+          if(dt2.getDate()-dt1.getDate()<0){
+            var days = 30 + (dt2.getDate()-dt1.getDate());
+          }
+          else{var days = dt2.getDate()-dt1.getDate()}
+          var strOutput = strOutput + days + " days!"
+
+          document.getElementById("text2").innerHTML = strOutput
+          return strOutput;
+        }
+
+
+
+
     </script>
 
 
@@ -56,6 +112,7 @@
     <div class="container">
       <img class="img"src="1.gif">
       <h1 id="text1">&#10084;&#65039;I love you&#10084;&#65039;</h1>
+      <h2 id="text2">aaaaaaaaa</h2>
     </div>
   </body>
 </html>
